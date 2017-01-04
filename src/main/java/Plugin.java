@@ -12,13 +12,15 @@ public class Plugin extends ActlistPlugin {
 	
 	public Plugin() {
 		super("Stay Awake");
+		
+		setPluginDescription("When Stay Awake is activated, will not gonna be sleep mode.");
+		setPluginVersion("1.0.0");
+		setPluginAuthor("Silentsoft (http://silentsoft.org)");
 	}
 	
 	@Override
 	protected void initialize() throws Exception {
-		setPluginDescription("When Stay Awake is activated, will not gonna be sleep mode.");
-		setPluginVersion("1.0.0");
-		setPluginAuthor("Silentsoft (http://silentsoft.org)");
+		
 	}
 	
 	@Override
