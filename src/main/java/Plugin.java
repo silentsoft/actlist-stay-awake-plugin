@@ -1,5 +1,6 @@
 import java.awt.MouseInfo;
 import java.awt.Point;
+import java.awt.PointerInfo;
 import java.awt.Robot;
 
 import org.silentsoft.actlist.plugin.ActlistPlugin;
@@ -31,13 +32,18 @@ public class Plugin extends ActlistPlugin {
 				Robot robot = new Robot();
 				
 				while (true) {
-					Point mouseLocation = MouseInfo.getPointerInfo().getLocation();
-					robot.mouseMove(mouseLocation.x, mouseLocation.y);
+					PointerInfo mousePointer = MouseInfo.getPointerInfo();
+					if (mousePointer != null) {
+						Point mouseLocation = mousePointer.getLocation();
+						robot.mouseMove(mouseLocation.x, mouseLocation.y);
+					}
 					
 					Thread.sleep(1000 * 30);
 				}
-			} catch (Exception e) {
+			} catch (InterruptedException e) {
 				
+			} catch (Exception e) {
+				raiseException(e);
 			}
 		});
 		thread.start();
