@@ -43,7 +43,7 @@ public class Plugin extends ActlistPlugin {
 			} catch (InterruptedException e) {
 				
 			} catch (Exception e) {
-				raiseException(e);
+				throwException(e);
 			}
 		});
 		thread.start();
