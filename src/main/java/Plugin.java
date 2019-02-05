@@ -11,7 +11,7 @@ public class Plugin extends ActlistPlugin {
 	private Thread thread;
 	
 	public static void main(String args[]) throws Exception {
-		//debug();
+		debug();
 	}
 	
 	public Plugin() {
