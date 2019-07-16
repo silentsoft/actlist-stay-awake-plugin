@@ -18,7 +18,7 @@ public class Plugin extends ActlistPlugin {
 		super("Stay Awake");
 		
 		setPluginVersion("1.0.1");
-		setPluginAuthor("silentsoft.org", URI.create("https://github.com/silentsoft/actlist-plugin-stay-awake"));
+		setPluginAuthor("silentsoft.org", URI.create("https://github.com/silentsoft/actlist-stay-awake-plugin"));
 		setPluginUpdateCheckURI(URI.create("http://actlist.silentsoft.org/api/plugin/0ebbebce/update/check"));
 		setPluginDescription("When Stay Awake is activated, will not gonna be sleep mode.");
 		
