@@ -17,10 +17,10 @@ public class Plugin extends ActlistPlugin {
 	public Plugin() {
 		super("Stay Awake");
 		
-		setPluginVersion("1.0.1");
+		setPluginVersion("1.0.2");
 		setPluginAuthor("silentsoft.org", URI.create("https://github.com/silentsoft/actlist-stay-awake-plugin"));
 		setPluginUpdateCheckURI(URI.create("http://actlist.silentsoft.org/api/plugin/0ebbebce/update/check"));
-		setPluginDescription("When Stay Awake is activated, will not gonna be sleep mode.");
+		setPluginDescription("When Stay Awake is activated, your machine will not gonna be a sleep mode. Stay Awake will always be with you !");
 		
 		setMinimumCompatibleVersion(1, 2, 6);
 	}
@@ -34,24 +34,26 @@ public class Plugin extends ActlistPlugin {
 	public void pluginActivated() throws Exception {
 		thread = null;
 		thread = new Thread(() -> {
-			try {
-				Robot robot = new Robot();
-				
-				while (true) {
+			while (true) {
+				try {
+					Robot robot = new Robot();
+					
 					PointerInfo mousePointer = MouseInfo.getPointerInfo();
 					if (mousePointer != null) {
 						Point mouseLocation = mousePointer.getLocation();
 						robot.mouseMove(mouseLocation.x, mouseLocation.y);
 					}
 					
-					Thread.sleep(1000 * 30);
+					Thread.sleep(1000 * 20);
+				} catch (InterruptedException e) {
+					break;
+				} catch (Exception e) {
+					throwException(e);
+					break;
 				}
-			} catch (InterruptedException e) {
-				
-			} catch (Exception e) {
-				throwException(e);
 			}
 		});
+		thread.setDaemon(true);
 		thread.start();
 	}
 	
